@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from './components/Navbar';
+import {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+function App(){
+  const[likes,setlikes]= useState(0);
+  console.log(likes);
+  function increaselikes(){
+    setlikes(likes+1);
+  }
+  return(
+  <div>
+    <Navbar/>
+    <button onClick={increaselikes}className="px-4 py-2 my-2 mx-2 border bg-yellow-500" >Likes</button>
+    <h1>{likes}</h1>
+  </div>
   );
 }
 
